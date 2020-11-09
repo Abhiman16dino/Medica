@@ -98,6 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
             intent.putExtra("Address", mAddress);
             intent.putExtra("Pincode", mPincode);
             intent.putExtra("Email", mEmail);
+            loadingBar.dismiss();
             startActivity(intent);
             finish();
 

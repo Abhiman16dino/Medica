@@ -27,7 +27,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class VerifyPhone extends AppCompatActivity {
@@ -46,11 +52,20 @@ public class VerifyPhone extends AppCompatActivity {
     Dialog dialog;
     FirebaseUser user;
 
+    String mName, mEmail, mPassword, mPhone, mAddress, mPincode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_phone);
+
+        mName = getIntent().getStringExtra("Name");
+        mEmail = getIntent().getStringExtra("Email");
+        mPassword = getIntent().getStringExtra("Password");
+        mPhone = getIntent().getStringExtra("Phone");
+        mAddress = getIntent().getStringExtra("Address");
+        mPincode = getIntent().getStringExtra("Pincode");
+
 
         initElements();
 
@@ -144,6 +159,8 @@ public class VerifyPhone extends AppCompatActivity {
                             user = FirebaseAuth.getInstance().getCurrentUser();
                             if (user !=null){
 
+                                validatePhone(mPhone, mName, mEmail, mPassword, mAddress, mPincode);
+
                                 Intent i = new Intent(VerifyPhone.this,ShopPage.class);
                                 startActivity(i);
                                 finish();
@@ -159,6 +176,56 @@ public class VerifyPhone extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void validatePhone(final String mPhone, final String mName, final String mEmail, final String mPassword, final String mAddress, final String mPincode) {
+
+        final DatabaseReference rootRef;
+        rootRef = FirebaseDatabase.getInstance().getReference();
+
+        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (!(snapshot.child("Users").child(mPhone).exists())){
+                    HashMap<String, Object> userData = new HashMap<>();
+                    userData.put("phone", mPhone);
+                    userData.put("Name", mName);
+                    userData.put("Email", mEmail);
+                    userData.put("Password", mPassword);
+                    userData.put("Address", mAddress);
+                    userData.put("Pincode", mPincode);
+
+                   rootRef.child("Users").child(mPhone).updateChildren(userData)
+                           .addOnCompleteListener(new OnCompleteListener<Void>() {
+                               @Override
+                               public void onComplete(@NonNull Task<Void> task) {
+                                   if(task.isSuccessful()){
+                                       Toast.makeText(VerifyPhone.this, "Account created" , Toast.LENGTH_LONG).show();
+
+                                   }else {
+                                       Toast.makeText(VerifyPhone.this, "Error " , Toast.LENGTH_LONG).show();
+                                   }
+                               }
+                           });
+
+
+
+
+
+                }else{
+                    Toast.makeText(VerifyPhone.this, "This phone:"+ mPhone + " already exist", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(VerifyPhone.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     public void getotpOnclick(){
