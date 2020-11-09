@@ -52,15 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
-
     }
 
     private void createAccount() {
@@ -82,43 +73,48 @@ public class RegisterActivity extends AppCompatActivity {
                 TextUtils.isEmpty(mPassword) ||
                 TextUtils.isEmpty(mCPassword) ||
                 TextUtils.isEmpty(mAddress) ||
-                TextUtils.isEmpty(mPincode) || TextUtils.isEmpty(mPhone)){
+                TextUtils.isEmpty(mPincode) || TextUtils.isEmpty(mPhone)) {
             Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_SHORT).show();
-        }
-        else if (!EmailValid(mEmail)){
+        } else if (!EmailValid(mEmail)) {
 
             Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_SHORT).show();
-        }
-
-        else if(!mPassword.equals(mCPassword)){
+        } else if (!mPassword.equals(mCPassword)) {
 
             Toast.makeText(getApplicationContext(), "Password not matched", Toast.LENGTH_SHORT).show();
 
-        }
-        else if(mPincode.length() != 6){
+        } else if (mPincode.length() != 6) {
             Toast.makeText(getApplicationContext(), "Invalid Pincode", Toast.LENGTH_SHORT).show();
-        }
-
-        else {
+        } else {
 
             loadingBar.setTitle("Creating Account");
             loadingBar.setMessage("Please wait while we are checking the details");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
+            Intent intent = new Intent(getApplicationContext(), VerifyPhone.class);
+            intent.putExtra("Phone", mPhone);
+            intent.putExtra("Password", mPassword);
+            intent.putExtra("Name", mName);
+            intent.putExtra("Address", mAddress);
+            intent.putExtra("Pincode", mPincode);
+            intent.putExtra("Email", mEmail);
+            startActivity(intent);
+            finish();
 
 
-            validatePhone(mPhone, mName, mEmail, mPassword, mAddress, mPincode);
+
+
+
+             // validatePhone(mPhone, mName, mEmail, mPassword, mAddress, mPincode);    //Storing Data in database
+
 
         }
-
-
 
 
     }
 
     private static boolean EmailValid(String mEmail) {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
@@ -129,63 +125,5 @@ public class RegisterActivity extends AppCompatActivity {
         return pat.matcher(mEmail).matches();
     }
 
-    private void validatePhone(final String mPhone, final String mName, final String mEmail, final String mPassword, final String mAddress, final String mPincode) {
 
-        final DatabaseReference RootRef;
-        RootRef = FirebaseDatabase.getInstance().getReference();
-
-        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (!(snapshot.child("Users").child(mPhone).exists())){
-
-                    HashMap<String, Object> userdataMap = new HashMap<>();
-                    userdataMap.put("Name", mName);
-                    userdataMap.put("Email", mEmail);
-                    userdataMap.put("Password", mPassword);
-                    userdataMap.put("Address", mAddress);
-                    userdataMap.put("Pincode", mPincode);
-                    userdataMap.put("Phone", mPhone);
-
-                    RootRef.child("Users").child(mPhone).updateChildren(userdataMap)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
-                                        Toast.makeText(getApplicationContext(), "Your Account is created", Toast.LENGTH_SHORT).show();
-                                        loadingBar.dismiss();
-
-                                        Intent intent = new Intent(RegisterActivity.this, ShopPage.class);
-                                        startActivity(intent);
-                                        finish();
-
-
-
-                                    }else {
-                                        Toast.makeText(getApplicationContext(), "Unknown error: Please try again later", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-
-
-
-
-                }else {
-
-                    Toast.makeText(getApplicationContext(), "This "+mPhone+" already exist", Toast.LENGTH_SHORT).show();
-                    loadingBar.dismiss();
-
-                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
 }
