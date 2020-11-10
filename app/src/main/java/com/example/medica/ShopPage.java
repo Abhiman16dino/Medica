@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import io.paperdb.Paper;
 
 public class ShopPage extends AppCompatActivity {
 
@@ -37,6 +40,12 @@ public class ShopPage extends AppCompatActivity {
                 break;
             case R.id.cart :
                 Toast.makeText(getApplicationContext(), "Cart clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case  R.id.logout:
+                Paper.book().destroy();
+                Intent intent = new Intent(ShopPage.this, MainActivity.class);
+                startActivity(intent);
+                finish();
                 break;
 
         }

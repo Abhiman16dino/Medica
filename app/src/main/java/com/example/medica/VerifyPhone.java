@@ -162,6 +162,7 @@ public class VerifyPhone extends AppCompatActivity {
                                 validatePhone(mPhone, mName, mEmail, mPassword, mAddress, mPincode);
 
                                 Intent i = new Intent(VerifyPhone.this,ShopPage.class);
+                                i.putExtra("Phone", mPhone);
                                 startActivity(i);
                                 finish();
 

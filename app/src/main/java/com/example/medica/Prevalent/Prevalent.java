@@ -5,4 +5,9 @@ import com.example.medica.Model.Users;
 public class Prevalent {
     static Users currentOnlineUser;
 
+    public static  final String UserPhoneKey = "UserPhone";
+    public static  final String UserPasswordKey = "UserPassword";
+
+
+
 }

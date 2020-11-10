@@ -15,20 +15,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.medica.Model.Users;
+import com.example.medica.Prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import io.paperdb.Paper;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText phone, password;
     CheckBox rememberme;
     Button login;
-    TextView forget;
+    TextView forget, admin, notAdmin;
     ProgressDialog loadingBar;
     String parentDatbase = "Users";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +45,35 @@ public class LoginActivity extends AppCompatActivity {
         forget = findViewById(R.id.forget);
         rememberme = findViewById(R.id.remember);
         loadingBar = new ProgressDialog(this);
+        admin = findViewById(R.id.admin);
+        notAdmin = findViewById(R.id.notadmin);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LoginUser();
+            }
+        });
+
+        Paper.init(this);
+
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login.setText("Login as Admin");
+                admin.setVisibility(View.INVISIBLE);
+                notAdmin.setVisibility(View.VISIBLE);
+                parentDatbase = "Admins";
+            }
+        });
+
+        notAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login.setText("LOGIN");
+                notAdmin.setVisibility(View.INVISIBLE);
+                admin.setVisibility(View.VISIBLE);
+                parentDatbase = "Users";
             }
         });
 
@@ -77,6 +105,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void AllowAccess(final String mPhone, final String mPassword) {
 
+        if (rememberme.isChecked()){
+            Paper.book().write(Prevalent.UserPhoneKey, mPhone);
+            Paper.book().write(Prevalent.UserPasswordKey, mPassword);
+        }
+
+
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -93,12 +127,36 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (userData.getPassword().equals(mPassword)){
 
-                            Toast.makeText(LoginActivity.this,"Signed in Successfully", Toast.LENGTH_SHORT).show();
+                           /* Toast.makeText(LoginActivity.this,"Signed in Successfully", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
 
                             Intent intent = new Intent(getApplicationContext(), ShopPage.class);
                             startActivity(intent);
-                            finish();
+                            finish();*/
+
+                           if (parentDatbase.equals("Admins")){
+
+                               Toast.makeText(LoginActivity.this,"Signed in Successfully", Toast.LENGTH_SHORT).show();
+                               loadingBar.dismiss();
+
+                               Intent intent = new Intent(getApplicationContext(), AdminProductActivity.class);
+                               startActivity(intent);
+                               finish();
+
+                           }
+
+                           else if (parentDatbase.equals("Users")){
+                               Toast.makeText(LoginActivity.this,"Signed in Successfully", Toast.LENGTH_SHORT).show();
+                               loadingBar.dismiss();
+
+                               Intent intent = new Intent(getApplicationContext(), ShopPage.class);
+                               startActivity(intent);
+                               finish();
+                           }
+
+
+
+
 
                         }
                         else {
@@ -126,4 +184,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
