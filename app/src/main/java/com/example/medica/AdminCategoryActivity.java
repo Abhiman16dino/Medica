@@ -1,11 +1,18 @@
 package com.example.medica;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import io.paperdb.Paper;
 
 public class AdminCategoryActivity extends AppCompatActivity {
 
@@ -17,6 +24,10 @@ public class AdminCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
+
+        Toolbar toolbar =  findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
 
         preventionGear = findViewById(R.id.prevention_gear);
         fitness = findViewById(R.id.fitness);
@@ -115,5 +126,32 @@ public class AdminCategoryActivity extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.profile :
+                Toast.makeText(getApplicationContext(), "Profile clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.cart :
+                Toast.makeText(getApplicationContext(), "Cart clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case  R.id.logout:
+                Paper.book().destroy();
+                Intent intent = new Intent(AdminCategoryActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+        }
+        return  true;
     }
 }

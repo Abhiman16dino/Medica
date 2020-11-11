@@ -108,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
         if (rememberme.isChecked()){
             Paper.book().write(Prevalent.UserPhoneKey, mPhone);
             Paper.book().write(Prevalent.UserPasswordKey, mPassword);
+            Paper.book().write(Prevalent.UserType, parentDatbase);
         }
 
 
@@ -127,12 +128,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (userData.getPassword().equals(mPassword)){
 
-                           /* Toast.makeText(LoginActivity.this,"Signed in Successfully", Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
 
-                            Intent intent = new Intent(getApplicationContext(), ShopPage.class);
-                            startActivity(intent);
-                            finish();*/
 
                            if (parentDatbase.equals("Admins")){
 

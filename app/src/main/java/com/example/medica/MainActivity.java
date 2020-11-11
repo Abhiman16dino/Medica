@@ -56,10 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
         String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
+        String db = Paper.book().read(Prevalent.UserType);
 
-        if (UserPhoneKey != "" && UserPasswordKey != ""){
-            if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)){
-                AllowAccess(UserPhoneKey, UserPasswordKey);
+        if (UserPhoneKey != "" && UserPasswordKey != "" && db != ""){
+            if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey) && !TextUtils.isEmpty(db)){
+                AllowAccess(UserPhoneKey, UserPasswordKey, db);
 
                 loadingBar.setTitle("Already Logged in");
                 loadingBar.setMessage("Please wait....");
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void AllowAccess(final String mPhone, final String mPassword) {
+    private void AllowAccess(final String mPhone, final String mPassword, final  String db) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -80,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if(snapshot.child("Users").child(mPhone).exists()){
-                    Users userData = snapshot.child("Users").child(mPhone).getValue(Users.class);
+                if(snapshot.child(db).child(mPhone).exists()){
+                    Users userData = snapshot.child(db).child(mPhone).getValue(Users.class);
 
 
 
@@ -89,12 +90,25 @@ public class MainActivity extends AppCompatActivity {
 
                         if (userData.getPassword().equals(mPassword)){
 
-                            Toast.makeText(MainActivity.this,"Welcome Again...", Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
+                            if (db.equals("Admins")){
 
-                            Intent intent = new Intent(getApplicationContext(), ShopPage.class);
-                            startActivity(intent);
-                            finish();
+                                Toast.makeText(MainActivity.this,"Signed in Successfully", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+                                Intent intent = new Intent(getApplicationContext(), AdminCategoryActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                            }
+
+                            else if (db.equals("Users")){
+                                Toast.makeText(MainActivity.this,"Signed in Successfully", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+                                Intent intent = new Intent(getApplicationContext(), ShopPage.class);
+                                startActivity(intent);
+                                finish();
+                            }
 
                         }
                         else {
