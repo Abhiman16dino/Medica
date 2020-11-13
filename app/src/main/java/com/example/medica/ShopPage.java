@@ -22,6 +22,16 @@ public class ShopPage extends AppCompatActivity {
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        
+
+
+
+
+
+
+
+
     }
 
     @Override
