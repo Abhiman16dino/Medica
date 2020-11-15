@@ -109,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
             Paper.book().write(Prevalent.UserPhoneKey, mPhone);
             Paper.book().write(Prevalent.UserPasswordKey, mPassword);
             Paper.book().write(Prevalent.UserType, parentDatbase);
+
         }
 
 
@@ -146,6 +147,7 @@ public class LoginActivity extends AppCompatActivity {
                                loadingBar.dismiss();
 
                                Intent intent = new Intent(getApplicationContext(), ShopPage.class);
+                               Prevalent.currentOnlineUser = userData;
                                startActivity(intent);
                                finish();
                            }

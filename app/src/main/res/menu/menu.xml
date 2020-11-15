@@ -7,6 +7,7 @@
         android:title="Profile"
         android:id="@+id/profile"
         android:icon="@drawable/prof"
+
         app:showAsAction="always"/>
     <item
         android:title="Cart"
@@ -14,10 +15,34 @@
         android:icon="@drawable/cart"
         app:showAsAction="always"/>
 
+
+    <item
+        android:title="Orders"
+        android:id="@+id/orders"
+
+        />
+    <item
+        android:title="Refresh"
+        android:id="@+id/ref"
+
+        />
+
+    <item
+        android:title="Categories"
+        android:id="@+id/categories"
+        android:icon="@drawable/order"
+        />
+
+    <item
+        android:title="Settings"
+        android:id="@+id/setting"
+        android:icon="@drawable/order"
+        />
+
     <item
         android:title="Log Out"
         android:id="@+id/logout"
-        app:showAsAction="always"
+
         />
 
 </menu>

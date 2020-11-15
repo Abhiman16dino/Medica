@@ -27,10 +27,10 @@
             android:id="@+id/productImage"
             android:layout_width="350dp"
             android:layout_height="200dp"
-            tools:srcCompat="@tools:sample/avatars"
+            android:src="@drawable/gal"
             android:cropToPadding="false"
             android:layout_gravity="center"
-            android:scaleType="centerCrop"
+            android:scaleType="center"
             android:layout_marginTop="16dp"
             />
         <EditText
