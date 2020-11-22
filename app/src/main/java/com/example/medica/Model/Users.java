@@ -7,17 +7,19 @@ public class Users {
     String Phone;
     String Pincode;
     String Address;
+    String Image;
 
     public Users() {
     }
 
-    public Users(String name, String email, String password, String phone, String pincode, String address) {
+    public Users(String name, String email, String password, String phone, String pincode, String address, String image) {
         Name = name;
         Email = email;
         Password = password;
         Phone = phone;
         Pincode = pincode;
         Address = address;
+        Image = image;
     }
 
     public String getName() {
@@ -66,5 +68,13 @@ public class Users {
 
     public void setAddress(String address) {
         Address = address;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 }

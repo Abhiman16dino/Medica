@@ -12,4 +12,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="loginbuttonclr">#5C6BC0</color>
     <color name="blue">#0000FF</color>
+
+    <color name="RED">#ff0303</color>
+    <color name="PINK">#ff037d</color>
 </resources>

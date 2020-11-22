@@ -5,141 +5,159 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:background="#B1BBF4">
+    android:background="#fff">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"
-        android:background="@color/design_default_color_primary_variant"
+        android:background="@drawable/toolbardesign"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="Medica"
         app:titleMarginStart="40dp"
+        android:layout_marginRight="100dp"
         />
+
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        
         android:layout_centerInParent="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="4dp"
+            android:padding="16dp"
             >
 
             <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/edttxt"
                 android:ems="10"
-                android:textColorHint="#fff"
                 android:foregroundGravity="center"
-                android:gravity="center"
                 android:hint="*Full Name"
                 android:inputType="textPersonName"
+                android:padding="8dp"
 
-                />
+
+                android:textColorHint="#818080"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/edttxt"
                 android:ems="10"
                 android:foregroundGravity="center"
-                android:gravity="center"
                 android:hint="*Phone Number"
-                android:textColorHint="#fff"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:padding="8dp"
+                android:textColorHint="#818080"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:textColorHint="#fff"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/edttxt"
                 android:ems="10"
                 android:foregroundGravity="center"
-                android:gravity="center"
                 android:hint="*Email Address"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:padding="8dp"
+                android:textColorHint="#818080"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/address"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/edttxt"
                 android:ems="10"
-                android:textColorHint="#fff"
                 android:foregroundGravity="center"
-                android:gravity="center"
                 android:hint="*Address"
-                android:inputType="textPostalAddress" />
+                android:inputType="textPostalAddress"
+                android:padding="8dp"
+                android:textColorHint="#818080"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/pincode"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:textColorHint="#fff"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/edttxt"
                 android:ems="10"
                 android:foregroundGravity="center"
-                android:gravity="center"
                 android:hint="*Pincode"
-                android:inputType="number" />
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColorHint="#818080"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/edttxt"
                 android:ems="10"
-                android:gravity="center"
                 android:hint="*Password"
-                android:textColorHint="#fff"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColorHint="#818080"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/cpassword"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/edttxt"
                 android:ems="10"
-                android:gravity="center"
                 android:hint="*Confirm Password"
-                android:textColorHint="#fff"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColorHint="#818080"
+                android:textSize="14sp" />
 
-            <Button
-                android:id="@+id/register"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/signup"
-                android:foregroundGravity="center"
-                android:gravity="center"
-                android:textColor="#fff"
-                android:text="Register" />
+
+
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/regbtn"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Register"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="#fff" />
 
 
 </RelativeLayout>

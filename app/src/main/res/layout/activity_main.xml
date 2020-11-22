@@ -10,7 +10,18 @@
 
     >
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <ImageView
+            android:id="@+id/slider"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"/>
+    </HorizontalScrollView>
 
+<!--
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,13 +32,14 @@
         app:titleMarginStart="40dp"
         />
 
+        -->
 
+    <!-- Write your comment-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
-
+        <!--
         <TextView
             android:id="@+id/textView3"
             android:layout_width="200dp"
@@ -40,6 +52,7 @@
             android:text="Medica"
             android:textColor="#062AF4"
             android:textSize="36sp" />
+            -->
 
     </LinearLayout>
 
@@ -60,7 +73,8 @@
             android:text="Already a user ? LOG IN"
             android:textColor="#FDFDFD"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <Button
             android:id="@+id/signup"
@@ -69,6 +83,9 @@
             android:background="@drawable/signup"
             android:text="New User ? SIGN UP"
 
-            android:textColor="#FFFFFF" />
+
+
+
+            android:textColor="#97000000" />
     </LinearLayout>
 </RelativeLayout>

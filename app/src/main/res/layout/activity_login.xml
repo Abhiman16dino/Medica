@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="#B1BBF4">
+    android:background="#fff">
 
 
 
@@ -13,10 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"
-        android:background="@color/design_default_color_primary_variant"
+        android:background="@drawable/toolbardesign"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="Medica"
         app:titleMarginStart="40dp"
+        android:layout_marginRight="100dp"
         />
 
 
@@ -33,27 +34,29 @@
         <EditText
             android:id="@+id/phone_login"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_margin="8dp"
             android:background="@drawable/edttxt"
             android:ems="10"
             android:gravity="center"
             android:hint="Phone Number..."
-            android:textColorHint="#fff"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textColorHint="#777676"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/pass_login"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="40dp"
             android:layout_margin="8dp"
             android:background="@drawable/edttxt"
             android:ems="10"
-            android:textColorHint="#fff"
             android:gravity="center"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColorHint="#777676"
+            android:textSize="14sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Remember me"
-                android:textColor="#fff"/>
+                android:textColor="#777676" />
 
             <TextView
                 android:id="@+id/forget"
@@ -74,7 +77,7 @@
                 android:layout_weight="1"
                 android:gravity="end"
                 android:text="Forget Password?"
-                android:textColor="#fff"/>
+                android:textColor="#777676" />
 
         </LinearLayout>
 
@@ -82,10 +85,11 @@
             android:id="@+id/login_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/signup"
+            android:backgroundTint="#184FEF"
             android:fontFamily="sans-serif-black"
             android:text="Login"
-            android:textColor="#F8F4F4" />
+            android:textColor="#FFFFFF"
+            android:background="@drawable/regbtn"/>
 
         <LinearLayout
             android:layout_width="match_parent"

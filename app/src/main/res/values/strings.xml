@@ -13,4 +13,5 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_shop_page1">ShopPageActivity1</string>
+    <string name="buy_now">Buy Now</string>
 </resources>

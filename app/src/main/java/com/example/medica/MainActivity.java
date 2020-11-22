@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.medica.Model.Users;
@@ -19,17 +20,40 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import co.gofynd.gravityview.GravityView;
 import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
     Button login, signup;
     ProgressDialog loadingBar;
+    GravityView gravityView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //Slider
+
+
+        gravityView = GravityView.getInstance(this)
+                .setImage((ImageView) findViewById(R.id.slider), R.drawable.backmainfinal)
+                .center();
+
+
+
+
+
+        //Slider
+
+
+
+
+
+
+
 
         signup = findViewById(R.id.signup);
         login = findViewById(R.id.login);
@@ -106,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(getApplicationContext(), ShopPage.class);
-                                //Prevalent.currentOnlineUser = userData;
+                                Prevalent.currentOnlineUser = userData;
                                 startActivity(intent);
                                 finish();
                             }
@@ -134,4 +158,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        gravityView.registerListener();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        gravityView.unRegisterListener();
+    }
+
+
 }
