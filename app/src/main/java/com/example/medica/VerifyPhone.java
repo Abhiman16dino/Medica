@@ -189,7 +189,7 @@ public class VerifyPhone extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!(snapshot.child("Users").child(mPhone).exists())){
                     HashMap<String, Object> userData = new HashMap<>();
-                    userData.put("phone", mPhone);
+                    userData.put("Phone", mPhone);
                     userData.put("Name", mName);
                     userData.put("Email", mEmail);
                     userData.put("Password", mPassword);
