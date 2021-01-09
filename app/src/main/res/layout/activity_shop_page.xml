@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShopPage"
+    android:background="#e8e8e8">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/design_default_color_primary_variant"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Medica"
+        app:titleMarginStart="40dp"/>
+
+<!--
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/sView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="4dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundedsearch">
+
+            </androidx.appcompat.widget.SearchView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/design_default_color_primary_variant"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:src="@drawable/man" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/rounded_corner_textview"
+                    android:padding="4dp"
+                    android:text="Prevention Gear"
+                    android:textColor="#000"
+                    android:textSize="24sp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="100dp"
+                    android:src="@drawable/glass" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/mask"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="100dp"
+                    android:src="@drawable/mask" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cloth"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginTop="100dp"
+                    android:src="@drawable/cloth" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/glove"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="300dp"
+                    android:layout_marginTop="100dp"
+                    android:src="@drawable/glove" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginTop="100dp"
+                    android:src="@drawable/shoecover" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"/>
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderStatus">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/design_default_color_primary_variant"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Orders Status"
+        app:titleMarginStart="20dp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/toolbar"
+        >
+
+        <TextView
+            android:id="@+id/status_orderid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:text="Order ID" />
+
+        <TextView
+            android:id="@+id/currentstatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:layout_margin="8dp"
+            android:text="Current Status" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change to :"
+            android:layout_margin="8dp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/radioGroup"
+            >
+
+            <RadioButton
+                android:id="@+id/radioButton_verified"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Verified" />
+
+            <RadioButton
+                android:id="@+id/radioButton2_shipped"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shipped" />
+
+            <RadioButton
+                android:id="@+id/radioButton3_ontheway"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="On the way" />
+
+            <RadioButton
+                android:id="@+id/radioButton4_received"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Package Received" />
+        </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>

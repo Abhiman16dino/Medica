@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminEditProducts">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/design_default_color_primary_variant"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Edit Product"
+        app:titleMarginStart="20dp"
+
+        />
+
+    <TextView
+        android:id="@+id/deleteproduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textSize="16sp"
+        android:textColor="#fff"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="4dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/ll"
+        android:layout_below="@id/toolbar">
+
+        <ImageView
+            android:id="@+id/productImageEdit"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:src="@drawable/gal"
+            android:cropToPadding="false"
+            android:layout_gravity="center"
+            android:scaleType="center"
+            android:layout_marginTop="16dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/productNameEdit"
+            android:hint="Product Name"
+            android:layout_marginTop="8dp"
+            android:inputType="textMultiLine"
+            android:padding="16dp"
+            android:background="@drawable/edttxt"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/productDescEdit"
+            android:hint="Product Description"
+            android:layout_marginTop="8dp"
+            android:inputType="textMultiLine"
+            android:padding="16dp"
+            android:background="@drawable/edttxt"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/productPriceEdit"
+            android:hint="Product Price"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:padding="16dp"
+            android:background="@drawable/edttxt"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/savechanges"
+        android:text="Save Changes"
+        android:background="@drawable/priceback"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        />
+
+</RelativeLayout>

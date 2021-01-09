@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="10dp"
+            android:background="#000"
+            android:id="@+id/line"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentsRecView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_below="@id/line"
+            android:layout_above="@id/ll1"
+            tools:ignore="NotSibling">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        >
+        <EditText
+            android:id="@+id/userComment"
+            android:layout_width="0dp"
+            android:layout_weight="0.95"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:hint="Enter your comment..."
+            android:background="@drawable/signup"
+            android:padding="8dp"
+            />
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="0dp"
+            android:id="@+id/commentsend"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_baseline_send_24" />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

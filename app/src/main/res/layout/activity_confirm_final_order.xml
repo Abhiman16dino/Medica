@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmFinalOrderActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/design_default_color_primary_variant"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Medica"
+        app:titleMarginStart="40dp"/>
+
+    <TextView
+        android:id="@+id/det"
+        android:layout_marginStart="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt"
+        android:text="Enter Shipment details"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt"
+        android:layout_below="@id/toolbar"
+        android:text="Please Confirm your order"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="15dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/shipment_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/det"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Your Name"
+        />
+
+    <EditText
+        android:id="@+id/shipment_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shipment_name"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Your Phone"
+        android:inputType="number"
+        />
+
+    <EditText
+        android:id="@+id/shipment_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shipment_phone"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Your Address"
+
+        />
+
+    <EditText
+        android:id="@+id/shipment_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shipment_address"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Your City"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:text="Confirm"
+        android:textColor="#fff"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/confirm_final_order_btn"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Use this one - "
+        android:layout_below="@id/shipment_city"
+        android:layout_marginStart="16dp"
+        android:id="@+id/thisone"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:id="@+id/cview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/thisone"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+            <TextView
+                android:id="@+id/prename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/preadd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="#000"
+                />
+            <TextView
+                android:id="@+id/prephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#000"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

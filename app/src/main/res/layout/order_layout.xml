@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardvieworder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="16dp"
+    app:cardCornerRadius="8dp"
+    android:layout_marginStart="6dp"
+    android:layout_marginEnd="6dp"
+    android:layout_marginTop="6dp"
+    android:background="@drawable/detailproduct"
+
+    >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:id="@+id/name_order"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_margin="4dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:id="@+id/productname_order"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:id="@+id/productquantity_order"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:id="@+id/address_order"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:id="@+id/phone_order"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:id="@+id/date_order"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:id="@+id/amount_order"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order Status"
+            android:id="@+id/orderstatus"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#000"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Order ID"
+                    android:id="@+id/orderid"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    android:textColor="#000"/>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
