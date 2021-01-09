@@ -77,7 +77,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if (TextUtils.isEmpty(phone.getText())){
+                    Toast.makeText(LoginActivity.this, "Please Enter Phone number", Toast.LENGTH_SHORT).show();
+                }else {
+
+                    Intent intent = new Intent(LoginActivity.this, VerifyPhone.class);
+                    intent.putExtra("Phone", phone.getText().toString());
+                    intent.putExtra("Data", "reset");
+                    startActivity(intent);
+
+                }
+
+
+            }
+        });
 
 
 
@@ -106,6 +123,12 @@ public class LoginActivity extends AppCompatActivity {
     private void AllowAccess(final String mPhone, final String mPassword) {
 
         if (rememberme.isChecked()){
+            Paper.book().write(Prevalent.UserPhoneKey, mPhone);
+            Paper.book().write(Prevalent.UserPasswordKey, mPassword);
+            Paper.book().write(Prevalent.UserType, parentDatbase);
+
+        }
+        else {
             Paper.book().write(Prevalent.UserPhoneKey, mPhone);
             Paper.book().write(Prevalent.UserPasswordKey, mPassword);
             Paper.book().write(Prevalent.UserType, parentDatbase);

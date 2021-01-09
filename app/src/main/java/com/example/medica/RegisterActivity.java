@@ -47,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 createAccount();
             }
         });
@@ -98,6 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
             intent.putExtra("Address", mAddress);
             intent.putExtra("Pincode", mPincode);
             intent.putExtra("Email", mEmail);
+            intent.putExtra("Data", "register");
             loadingBar.dismiss();
             startActivity(intent);
             finish();

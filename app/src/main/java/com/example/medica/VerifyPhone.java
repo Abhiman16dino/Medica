@@ -54,6 +54,8 @@ public class VerifyPhone extends AppCompatActivity {
 
     String mName, mEmail, mPassword, mPhone, mAddress, mPincode;
 
+    String Data ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,12 @@ public class VerifyPhone extends AppCompatActivity {
         mPhone = getIntent().getStringExtra("Phone");
         mAddress = getIntent().getStringExtra("Address");
         mPincode = getIntent().getStringExtra("Pincode");
+
+        Data = getIntent().getStringExtra("Data").toString();
+
+        Toast.makeText(VerifyPhone.this, mPhone, Toast.LENGTH_SHORT).show();
+
+
 
 
         initElements();
@@ -82,6 +90,7 @@ public class VerifyPhone extends AppCompatActivity {
         resendOTP = findViewById(R.id.resend_otp);
         otpsent = findViewById(R.id.otp_sent);
         countdowntimer = findViewById(R.id.countdown_timer);
+        phoneNo.setText(mPhone);
         getotp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +108,8 @@ public class VerifyPhone extends AppCompatActivity {
             }
         });
         login.setTextColor(Color.parseColor("#C0BEBE"));
+
+
 
     }
 
@@ -150,6 +161,8 @@ public class VerifyPhone extends AppCompatActivity {
 
     private void signInWithCredential(PhoneAuthCredential credential) {
 
+        mPhone = getIntent().getStringExtra("Phone");
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -159,12 +172,23 @@ public class VerifyPhone extends AppCompatActivity {
                             user = FirebaseAuth.getInstance().getCurrentUser();
                             if (user !=null){
 
-                                validatePhone(mPhone, mName, mEmail, mPassword, mAddress, mPincode);
+                                if (Data.equals("reset")){
+                                    Intent intent = new Intent(VerifyPhone.this, ResetPassword.class);
+                                    intent.putExtra("Phone", mPhone);
+                                    startActivity(intent);
+                                }
+                               else {
+                                    validatePhone(mPhone, mName, mEmail, mPassword, mAddress, mPincode);
 
-                                Intent i = new Intent(VerifyPhone.this,ShopPage.class);
-                                i.putExtra("Phone", mPhone);
-                                startActivity(i);
-                                finish();
+                                    Intent i = new Intent(VerifyPhone.this,ShopPage.class);
+                                    i.putExtra("Phone", mPhone);
+                                    startActivity(i);
+                                    finish();
+
+                                }
+
+
+
 
                             }else {
 
@@ -178,6 +202,8 @@ public class VerifyPhone extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     private void validatePhone(final String mPhone, final String mName, final String mEmail, final String mPassword, final String mAddress, final String mPincode) {
 
@@ -329,8 +355,9 @@ public class VerifyPhone extends AppCompatActivity {
         public void onVerificationFailed(@NonNull FirebaseException e) {
 
             getotpclicked = false;
-            getotp.setTextColor(Color.parseColor("00000FF"));
+          //  getotp.setTextColor(Color.parseColor("0000FF"));
             Toast.makeText(VerifyPhone.this,e.getMessage(), Toast.LENGTH_LONG).show();
+            dialog.dismiss();
 
         }
     };

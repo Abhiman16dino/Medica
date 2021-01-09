@@ -14,11 +14,14 @@ import android.widget.Toast;
 
 import com.example.medica.Model.Users;
 import com.example.medica.Prevalent.Prevalent;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import co.gofynd.gravityview.GravityView;
 import io.paperdb.Paper;
@@ -37,14 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Slider
 
-
         gravityView = GravityView.getInstance(this)
                 .setImage((ImageView) findViewById(R.id.slider), R.drawable.backmainfinal)
                 .center();
-
-
-
-
 
         //Slider
 
@@ -92,6 +90,18 @@ public class MainActivity extends AppCompatActivity {
                 loadingBar.show();
             }
         }
+
+        FirebaseMessaging.getInstance().subscribeToTopic("weather")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Done";
+                        if (!task.isSuccessful()) {
+                            msg = "Failed";
+                        }
+
+                    }
+                });
 
 
 

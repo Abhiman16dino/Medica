@@ -180,6 +180,8 @@ public class AdminProductActivity extends AppCompatActivity {
 
     private void SaveProductInfoToDatabase() {
 
+
+
         HashMap<String, Object> productMap = new HashMap<>();
         productMap.put("pid", productRandomKey);
         productMap.put("date", saveCurrentDate);

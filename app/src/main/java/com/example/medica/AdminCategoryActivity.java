@@ -130,6 +130,11 @@ public class AdminCategoryActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
+        menu.findItem(R.id.ref).setVisible(false);
+        menu.findItem(R.id.categories).setVisible(false);
+        menu.findItem(R.id.search).setTitle("All Products");      //Search id will now considered as all products in this activity
+        menu.findItem(R.id.cart).setVisible(false);
+
         return true;
     }
 
@@ -141,8 +146,12 @@ public class AdminCategoryActivity extends AppCompatActivity {
             case R.id.profile :
                 Toast.makeText(getApplicationContext(), "Profile clicked", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.cart :
-                Toast.makeText(getApplicationContext(), "Cart clicked", Toast.LENGTH_SHORT).show();
+            case R.id.search :    //All Products
+
+                Toast.makeText(getApplicationContext(), "all products clicked", Toast.LENGTH_SHORT).show();
+                Intent intentx = new Intent(AdminCategoryActivity.this, AdminAllProducts.class);
+                startActivity(intentx);
+
                 break;
             case  R.id.logout:
                 Paper.book().destroy();
@@ -150,6 +159,14 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 break;
+            case R.id.orders:
+//                Toast.makeText(getApplicationContext(), "Admin order clicked", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(AdminCategoryActivity.this, AdminAllOrders.class);
+                startActivity(intent1);
+                break;
+
+
+
 
         }
         return  true;

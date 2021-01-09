@@ -2,11 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item
+        android:title="Search"
+        android:id="@+id/search"
+        />
+
+
 
     <item
         android:title="Profile"
         android:id="@+id/profile"
         android:icon="@drawable/prof"
+        android:visible="false"
 
         app:showAsAction="always"/>
     <item

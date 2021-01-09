@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/addNewProduct"
         android:text="Add Product"
-        android:background="@drawable/signup"
+        android:background="@drawable/priceback"
         android:textColor="#fff"
         android:textSize="20sp"
         android:textAllCaps="false"
