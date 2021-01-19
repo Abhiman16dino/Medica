@@ -242,6 +242,7 @@ public class SettingsActivity extends AppCompatActivity {
                         userMap.put("Pincode", pincodeEditText.getText().toString());
                      //   userMap.put("Password", passwordEditText.getText().toString());
                         userMap.put("Image", myUrl);
+                        Prevalent.currentOnlineUser.setImage(myUrl);
 
                         ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 

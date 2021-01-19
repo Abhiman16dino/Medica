@@ -128,12 +128,12 @@ public class LoginActivity extends AppCompatActivity {
             Paper.book().write(Prevalent.UserType, parentDatbase);
 
         }
-        else {
-            Paper.book().write(Prevalent.UserPhoneKey, mPhone);
-            Paper.book().write(Prevalent.UserPasswordKey, mPassword);
-            Paper.book().write(Prevalent.UserType, parentDatbase);
-
-        }
+//        else {
+//            Paper.book().write(Prevalent.UserPhoneKey, mPhone);
+//            Paper.book().write(Prevalent.UserPasswordKey, mPassword);
+//            Paper.book().write(Prevalent.UserType, parentDatbase);
+//
+//        }
 
 
         final DatabaseReference RootRef;

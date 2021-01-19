@@ -127,9 +127,14 @@ public class ProductDetailActivity extends AppCompatActivity {
                 String myMessage = productID;
                 bundle.putString("message", myMessage );
 
-                BottomSheetComments bottomSheetComments = new BottomSheetComments();
-                bottomSheetComments.setArguments(bundle);
-                bottomSheetComments.show(getSupportFragmentManager(),"TAG");
+
+                   BottomSheetComments bottomSheetComments = new BottomSheetComments();
+                   bottomSheetComments.setArguments(bundle);
+                   bottomSheetComments.show(getSupportFragmentManager(),"TAG");
+
+                  // Toast.makeText(ProductDetailActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+
             }
         });
 

@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.medica.Model.Users;
+import com.example.medica.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -179,8 +181,10 @@ public class VerifyPhone extends AppCompatActivity {
                                 }
                                else {
                                     validatePhone(mPhone, mName, mEmail, mPassword, mAddress, mPincode);
-
                                     Intent i = new Intent(VerifyPhone.this,ShopPage.class);
+                                    Users userData = new Users(mName, mEmail, mPassword, mPhone, mPincode, mAddress,
+                                            "https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_1280.png");
+                                    Prevalent.currentOnlineUser = userData;
                                     i.putExtra("Phone", mPhone);
                                     startActivity(i);
                                     finish();

@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,6 +33,7 @@ DatabaseReference productRef;
 private RecyclerView recyclerView;
 RecyclerView.LayoutManager layoutManager;
 FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
+    ProgressDialog loadingBar;
 
     @Override
     protected void onStart() {
@@ -50,6 +52,7 @@ FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
         setSupportActionBar(toolbar);
 
         productRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        loadingBar = new ProgressDialog(this);
 
         recyclerView = findViewById(R.id.rView);
         recyclerView.setHasFixedSize(true);
@@ -146,10 +149,19 @@ FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
                 startActivity(intent2);
                 break;
             case  R.id.logout:
+
+                loadingBar.setTitle("Logging you out");
+                loadingBar.setMessage("Please wait....");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
+
                 Paper.book().destroy();
                 Intent intent = new Intent(ShopPage.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+
+                loadingBar.dismiss();
+
                 break;
             case R.id.setting:
                 Intent intent1 = new Intent(ShopPage.this, SettingsActivity.class);
